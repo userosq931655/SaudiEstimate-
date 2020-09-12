@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Car Valuation System</title>
+    <meta name="description" content="This is a machine learning based system that will help you to estimate your car price">
+    <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="../static/assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/css/bootstrap-slider.min.css">
+    <link rel="stylesheet" href="../static/assets/css/select2.css">
+    <link rel="stylesheet" href="../static/assets/css/smoothproducts.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="#">Car Valuation System</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="{{url_for('index')}}">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('valuation') }}">VALUATION</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('contactUS') }}">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page landing-page">
+        <section class="clean-block clean-hero" style="color: rgba(9, 162, 255, 0.85);background: url(../static/assets/img/tech/382155.jpg) center / auto no-repeat;height: 598px;min-height: 598px;">
+            <div class="text">
+                <h2>Welcome to Saudi Estimate</h2>
+                <p>Saudi&nbsp;Estimate is a platform which will help individuals to evaluate the price of their cars based on machine learning algorithm</p><a class="btn btn-outline-light btn-lg" href="{{ url_for('valuation') }}" role="button">Try it now !!</a>
+</div>
+        </section>
+        <section class="clean-block features">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Features of Saudi Estimate</h2>
+                    <p></p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 feature-box"><i class="icon-star icon"></i>
+                        <h4>Based on Machine learning&nbsp;&nbsp;</h4>
+                        <p>The platform was developed based on some of powerful machine learning algorithm to have a high valuation accuracy.</p>
+                    </div>
+                    <div class="col-md-5 feature-box"><i class="icon-chart icon"></i>
+                        <h4>Based on live market prices</h4>
+                        <p>The datasets were collected from different Saudi market websites which will give an overview of the current market precises.&nbsp;</p>
+                    </div>
+                    <div class="col-md-5 feature-box"><i class="icon-screen-smartphone icon"></i>
+                        <h4>Easy to use</h4>
+                        <p>The platform is easy to use as it support any device and any software because it's a web based application.&nbsp;</p>
+                    </div>
+                    <div class="col-md-5 feature-box"><i class="icon-organization icon"></i>
+                        <h4><strong>Variety&nbsp;</strong>of cars</h4>
+                        <p>The platform consist of over 90 car make brands and over 1000 different cars and models.&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="clean-block about-us">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">About Us</h2>
+                    <p>We are a group of 3 powerful minds each of us have expertise in some fields such as web development, Machine learning and Artificial intelligence. We worked as a team and we successfully establish this website with it's awesome idea.&nbsp;&nbsp;</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="../static/assets/img/download2.png" style="background: url(../static/assets/img/me.png);">
+                            <div class="card-body info">
+                                <h4 class="card-title">Abdullah Shaikh</h4>
+                                <p class="card-text">Data Set Collector | Front-End dev</p>
+                                <div class="icons"><a href="https://www.linkedin.com/in/abdullah-n-shaikh/"><i class="icon-social-linkedin"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="../static/assets/img/0.jpg">
+                            <div class="card-body info">
+                                <h4 class="card-title">Ye Myint Htun <br></h4>
+                                <p class="card-text">Machine learning specialist&nbsp;</p>
+                                <div class="icons"><a href="https://www.linkedin.com/in/ye-myint-htun-6457661a3/"><i class="icon-social-linkedin"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="../static/assets/img/depositphotos_188994514-stock-illustration-vector-illustration-male-silhouette-profile.jpg">
+                            <div class="card-body info">
+                                <h4 class="card-title">Abdulaziz Alshehri <br></h4>
+                                <p class="card-text">Machine learning specialist&nbsp;<br></p>
+                                <div class="icons"><a href="https://www.linkedin.com/in/abdulaziz-alshehri-a9a9351ab/"><i class="icon-social-linkedin"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <script src="../static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="../static/assets/js/smoothproducts.min.js"></script>
+    <script src="../static/assets/js/theme.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/bootstrap-slider.min.js"></script>
+    <script src="../static/assets/js/make2.js"></script>
+    <script src="../static/assets/js/makeandmodel.js"></script>
+    <script src="../static/assets/js/Range-selector---slider.js"></script>
+    <script src="../static/assets/js/select2-1.js"></script>
+    <script src="../static/assets/js/select2-2.js"></script>
+    <script src="../static/assets/js/select2-3.js"></script>
+    <script src="../static/assets/js/select2-4.js"></script>
+    <script src="../static/assets/js/select2-5.js"></script>
+    <script src="../static/assets/js/select2-6.js"></script>
+    <script src="../static/assets/js/select2.js"></script>
+</body>
+
+</html>

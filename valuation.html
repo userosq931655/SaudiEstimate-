@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Register - Car Valuation System</title>
+    <meta name="description" content="This is a machine learning based system that will help you to estimate your car price">
+    <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="../static/assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/css/bootstrap-slider.min.css">
+    <link rel="stylesheet" href="../static/assets/css/select2.css">
+    <link rel="stylesheet" href="../static/assets/css/smoothproducts.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="#">Car Valuation System</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('index') }}">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="{{ url_for('valuation') }}">VALUATION</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('contactUS') }}">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page registration-page">
+        <section class="clean-block clean-form dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Valuation</h2>
+                    <p>Please select your car information</p>
+                </div>
+                <form action="" method="post" id="myForm" >
+                    {{ form.hidden_tag() }}
+                    <div class="form-group">
+<label>Make</label>
+<div>
+    {{ form.make(class="form-control", id="make", required=true) }}
+</div>
+</div>
+<div class="form-group">
+
+<label>Model</label>
+<div>
+
+    {{ form.modelcar(class="form-control", id="modelcar", required=true) }}
+
+    </div>
+        </div>
+                    <div class="form-group"><label>Year</label>
+                        {{ form.year(class="form-control" , required=true) }}
+                    </div>
+                       <div
+                        class="form-group"><label>Mileage <br></label>
+                        {{ form.mileage(class="form-control",min="0",max="200000",step="1000", required=true,type="number", placeholder="Example: 10000" ) }}
+
+            </div>
+            <div class="form-group"><label>City</label>
+                {{ form.city(class="form-control", required=true) }}
+            </div>
+            <div class="form-group"><label>Color</label>
+                {{ form.color(class="form-control", required=true) }}
+            </div>
+            <div class="form-group"><label>Transmission Type</label>
+                {{ form.trans(class="form-control", required=true) }}
+
+            </div>
+                    <div>
+                        <button class="btn btn-secondary" style="" onclick="resetBtn()" type="button">Reset</button>
+                        <button class="btn btn-primary" style="width: 82%" type="submit">Estimate Your Car Worth</button>
+                    </div>
+                        {% if result %}
+{#                        <br>#}
+{#                        <label style= "font-weight: bold" color = "#fffff" class="bg-secondary border-primary shadow-sm d-xl-flex justify-content-xl-center">Your car's details are as follows:</label>#}
+{#                        <label style=" display: block; text-align: center ; font-size: 18px" > {{ cardetails }}</label>#}
+{#                        <label style= "font-weight: bold" color = "#fffff" class="bg-secondary border-primary shadow-sm d-xl-flex justify-content-xl-center">Your car's price is about:</label>#}
+{#                        <label style=" display: block; text-align: center ; font-size: 22px ; font-weight: bold" >Between {{ low_vlaue }} to {{ high_vlaue }} SAR</label>#}
+{##}
+{#                        <br>#}
+                        <div class="table-responsive">
+    <table class="table">
+{#        <thead>
+            <tr>
+                <th>Car info</th>
+            </tr>
+        </thead>#}
+        <tbody>
+ {#           <tr>
+                <td>Make</td>
+                <td>{{ make }}</td>
+            </tr>
+            <tr>
+                <td>Model</td>
+                <td>{{ modelcar }}</td>
+            </tr>
+            <tr>
+                <td>Year</td>
+                <td>{{ year }}</td>
+            </tr>
+            <tr>
+                <td>Mileage</td>
+                <td>{{ mileage }}</td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td>{{ city }}</td>
+            </tr>
+            <tr>
+                <td>Color</td>
+                <td>{{ color }}</td>
+            </tr>
+            <tr>
+                <td>Trans<br /></td>
+                <td>{{ trans }}</td>
+            </tr>#}
+            <tr>
+                <td style="font-style: normal;font-weight: bold;">Price range</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold; font-size: 20px">Between {{ low_vlaue }} to {{ high_vlaue }}</td>
+                <td>SAR<br /></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+                    {% endif %}
+
+
+
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark">
+        <div class="footer-copyright">
+            <p>© 2020 Copyright Text</p>
+        </div>
+    </footer>
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <script src="../static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="../static/assets/js/smoothproducts.min.js"></script>
+    <script src="../static/assets/js/theme.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/bootstrap-slider.min.js"></script>
+    <script src="../static/assets/js/make2.js"></script>
+    <script src="../static/assets/js/makeandmodel.js"></script>
+    <script src="../static/assets/js/Range-selector---slider.js"></script>
+    <script src="../static/assets/js/select2-1.js"></script>
+    <script src="../static/assets/js/select2-2.js"></script>
+    <script src="../static/assets/js/select2-3.js"></script>
+    <script src="../static/assets/js/select2-4.js"></script>
+    <script src="../static/assets/js/select2-5.js"></script>
+    <script src="../static/assets/js/select2-6.js"></script>
+    <script src="../static/assets/js/select2.js"></script>
+
+
+<script>
+ function resetBtn() {
+     x = $('select');
+     x.find('option:eq(0)').prop('selected', true);
+
+     $('#modelcar').empty()
+     $("#modelcar").prepend(new Option("--Select One--", "--Select One--"));
+     $('#modelcar option[value="--Select One--"]').val("")
+
+     document.getElementById('mileage').value = ""
+     document.getElementsByClassName('table-responsive')[0].innerHTML = ""
+        }
+
+    {#   to save the inputs of the name of the car #}
+    $(document).ready(function() {
+
+
+         x =  $('#make').val()
+            fetch('/get_model/' + x).then(function (response){
+                response.json().then(function (data) {
+
+                    for (let x of data.x){
+                      $('#modelcar').append(new Option(x,x))
+                        {% if modelcar %}
+                            console.log(x == '{{ modelcar }}')
+                        if (x == '{{ modelcar }}' ){
+                            $('#modelcar option[value="{{ modelcar }}" ').attr('selected', 'selected')
+                            console.log($('#modelcar option[value=]'))
+
+                        }
+                        {% endif %}
+                    }
+                })
+            })
+
+
+        $("#modelcar").prepend(new Option("--Select One--", "--Select One--"));
+
+        $('select option[value="--Select One--"]').val("")
+
+        {#$('select option[value=""]').attr('disabled', 'disabled')#}
+
+        $('#make').change(function () {
+            $('#modelcar').empty()
+
+            $("#modelcar").prepend(new Option("--Select One--", "--Select One--"));
+
+            $('#modelcar option[value="--Select One--"]').val("")
+            {#$('#modelcar option[value=""]').attr('disabled', 'disabled')#}
+
+
+            x =  $('#make').val()
+            fetch('/get_model/' + x).then(function (response){
+                response.json().then(function (data) {
+
+                    for (let x of data.x){
+                      $('#modelcar').append(new Option(x,x))
+                    }
+                })
+            })
+
+
+        })
+
+    });
+</script>
+</body>
+
+</html>
